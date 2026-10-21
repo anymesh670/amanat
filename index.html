@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f7f0e5" />
+  <meta name="description" content="Handmade bouquets, hairclips, keychains and custom creations by Amanat by Anchal." />
+  <title>AMANAT by Anchal — Handmade with heart</title>
+  <style>
+    :root {
+      --paper: #f7f0e5;
+      --ink: #171713;
+      --pink: #ff75b5;
+      --yellow: #f4ff4f;
+      --lilac: #c9b8ff;
+      --green: #c9f27b;
+      --white: #fffdf8;
+      --line: 3px solid var(--ink);
+      --shadow: 6px 6px 0 var(--ink);
+      --shadow-small: 4px 4px 0 var(--ink);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.45;
+    }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    button:focus-visible, input:focus-visible, a:focus-visible {
+      outline: 3px dashed #6a45e8;
+      outline-offset: 3px;
+    }
+    a { color: inherit; }
+    .site-shell { max-width: 1440px; margin: 0 auto; padding: 0 28px 48px; }
+    .announcement {
+      margin: 0 -28px;
+      background: var(--yellow);
+      border-bottom: var(--line);
+      padding: 9px 28px;
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      text-align: center;
+    }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 23px 0 18px;
+      border-bottom: var(--line);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; min-width: 0; }
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 54px;
+      height: 54px;
+      flex: 0 0 54px;
+      border: var(--line);
+      border-radius: 50%;
+      background: var(--pink);
+      box-shadow: 3px 3px 0 var(--ink);
+      font-family: Georgia, serif;
+      font-size: 31px;
+      font-style: italic;
+      font-weight: 700;
+    }
+    .brand-name { font-size: clamp(17px, 2.4vw, 24px); line-height: 1; font-weight: 1000; letter-spacing: -.06em; }
+    .brand-sub { margin-top: 6px; font-size: 10px; font-weight: 900; letter-spacing: .18em; text-transform: uppercase; }
+    .main-nav { display: flex; align-items: center; justify-content: center; gap: clamp(10px, 1.7vw, 24px); }
+    .main-nav a, .mobile-nav a { font-size: 11px; font-weight: 1000; text-transform: uppercase; text-decoration: none; text-underline-offset: 4px; }
+    .main-nav a:hover, .mobile-nav a:hover { text-decoration: underline; text-decoration-thickness: 2px; }
+    .mobile-nav { display: none; }
+    .top-actions { display: flex; align-items: center; gap: 10px; }
+    .text-link { font-size: 12px; font-weight: 800; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+    .cart-top, .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border: var(--line);
+      border-radius: 0;
+      background: var(--ink);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      padding: 12px 16px;
+      box-shadow: var(--shadow-small);
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .cart-top:hover, .button:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
+    .count-bubble { display: inline-grid; place-items: center; min-width: 22px; height: 22px; padding: 0 5px; border: 2px solid var(--ink); background: var(--yellow); color: var(--ink); border-radius: 50%; font-size: 11px; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(250px, .6fr);
+      gap: 18px;
+      padding: 28px 0 38px;
+    }
+    .hero-main {
+      position: relative;
+      overflow: hidden;
+      min-height: 350px;
+      padding: clamp(25px, 5vw, 58px);
+      border: var(--line);
+      background: var(--pink);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    .eyebrow { display: inline-block; border: 2px solid var(--ink); background: var(--yellow); padding: 6px 9px; font-size: 10px; font-weight: 1000; letter-spacing: .12em; text-transform: uppercase; transform: rotate(-2deg); }
+    h1 { max-width: 750px; margin: 22px 0 12px; font-size: clamp(46px, 7.2vw, 104px); line-height: .82; letter-spacing: -.085em; font-weight: 1000; text-transform: uppercase; }
+    h1 .outline { color: transparent; -webkit-text-stroke: 2px var(--ink); }
+    .hero-copy { max-width: 440px; margin: 7px 0 22px; font-size: 15px; font-weight: 700; }
+    .hero-sticker {
+      position: absolute;
+      width: 115px;
+      height: 115px;
+      right: 28px;
+      top: 27px;
+      display: grid;
+      place-items: center;
+      padding: 12px;
+      background: var(--yellow);
+      border: var(--line);
+      border-radius: 50%;
+      text-align: center;
+      transform: rotate(12deg);
+      font-size: 12px;
+      line-height: 1.1;
+      font-weight: 1000;
+      text-transform: uppercase;
+    }
+    .hero-side { display: grid; grid-template-rows: 1fr auto; gap: 18px; }
+    .hero-art {
+      min-height: 225px;
+      border: var(--line);
+      background: var(--lilac);
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-art::before, .hero-art::after { content: ''; position: absolute; border: var(--line); border-radius: 50%; }
+    .hero-art::before { width: 190px; height: 190px; background: var(--yellow); right: -50px; top: -55px; }
+    .hero-art::after { width: 140px; height: 140px; background: var(--pink); left: -40px; bottom: -50px; }
+    .flower-emoji { z-index: 1; font-size: clamp(85px, 10vw, 135px); filter: drop-shadow(4px 5px 0 rgba(23,23,19,.16)); transform: rotate(-10deg); }
+    .side-note { border: var(--line); background: var(--green); box-shadow: var(--shadow); padding: 16px 18px; }
+    .side-note strong { display: block; font-size: 15px; text-transform: uppercase; }
+    .side-note span { display: block; font-size: 12px; margin-top: 3px; }
+
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 18px; padding: 10px 0 18px; }
+    .section-heading h2 { margin: 0; font-size: clamp(27px, 4vw, 43px); font-weight: 1000; letter-spacing: -.065em; text-transform: uppercase; }
+    .section-heading p { margin: 5px 0 0; font-size: 12px; font-weight: 700; }
+    .catalog-layout { display: grid; grid-template-columns: minmax(0, 1fr) 330px; align-items: start; gap: 28px; }
+    .catalog-toolbar { display: flex; gap: 12px; margin-bottom: 16px; }
+    .search-wrap { position: relative; flex: 1; min-width: 0; }
+    .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 19px; }
+    .search-input { width: 100%; min-height: 49px; border: var(--line); border-radius: 0; background: var(--white); padding: 12px 13px 12px 43px; font-size: 13px; font-weight: 700; box-shadow: 3px 3px 0 var(--ink); }
+    .search-input::placeholder { color: #69675f; opacity: 1; }
+    .filter-select { min-height: 49px; max-width: 190px; border: var(--line); border-radius: 0; background: var(--yellow); padding: 9px 12px; font-size: 12px; font-weight: 900; box-shadow: 3px 3px 0 var(--ink); }
+    .category-list { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 23px; }
+    .category-chip { border: 2px solid var(--ink); background: transparent; padding: 9px 13px; font-size: 11px; font-weight: 900; text-transform: uppercase; box-shadow: 3px 3px 0 var(--ink); }
+    .category-chip[aria-pressed="true"] { background: var(--yellow); transform: translate(1px, 1px); box-shadow: 2px 2px 0 var(--ink); }
+    .product-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 17px; }
+    .product-card { min-width: 0; display: flex; flex-direction: column; border: var(--line); background: var(--white); box-shadow: var(--shadow-small); transition: transform .15s ease, box-shadow .15s ease; }
+    .product-card:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+    .product-visual { position: relative; min-height: 165px; display: grid; place-items: center; border-bottom: var(--line); overflow: hidden; }
+    .product-visual .product-emoji { font-size: 76px; z-index: 1; filter: drop-shadow(3px 4px 0 rgba(23,23,19,.13)); transform: rotate(-7deg); }
+    .product-visual::before { content: ''; position: absolute; width: 115px; height: 115px; border: 2px solid var(--ink); border-radius: 50%; right: -22px; top: -30px; background: rgba(255,255,255,.25); }
+    .product-visual::after { content: ''; position: absolute; width: 75px; height: 75px; border: 2px solid var(--ink); border-radius: 50%; left: -22px; bottom: -30px; background: rgba(255,255,255,.22); }
+    .product-number { position: absolute; left: 10px; top: 10px; z-index: 2; border: 2px solid var(--ink); padding: 3px 6px; background: var(--white); font-size: 9px; font-weight: 1000; }
+    .product-badge { position: absolute; right: 9px; bottom: 9px; z-index: 2; border: 2px solid var(--ink); background: var(--yellow); padding: 4px 6px; font-size: 9px; font-weight: 1000; text-transform: uppercase; transform: rotate(3deg); }
+    .product-info { display: flex; flex: 1; flex-direction: column; padding: 13px; }
+    .product-category { font-size: 9px; text-transform: uppercase; letter-spacing: .12em; font-weight: 1000; opacity: .7; }
+    .product-title { margin: 5px 0 6px; font-size: 15px; line-height: 1.15; font-weight: 1000; letter-spacing: -.035em; }
+    .product-description { margin: 0 0 12px; font-size: 11px; line-height: 1.4; color: #55534c; flex: 1; }
+    .product-bottom { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: auto; }
+    .price { font-size: 17px; font-weight: 1000; letter-spacing: -.04em; white-space: nowrap; }
+    .add-button { border: 2px solid var(--ink); background: var(--yellow); color: var(--ink); padding: 9px 10px; font-size: 10px; font-weight: 1000; text-transform: uppercase; box-shadow: 3px 3px 0 var(--ink); }
+    .add-button:hover { transform: translate(1px, 1px); box-shadow: 2px 2px 0 var(--ink); }
+    .empty-products { grid-column: 1 / -1; border: var(--line); padding: 45px 20px; background: var(--lilac); box-shadow: var(--shadow-small); text-align: center; }
+    .empty-products strong { display: block; font-size: 23px; text-transform: uppercase; }
+
+    .cart-panel { position: sticky; top: 18px; border: var(--line); background: var(--yellow); box-shadow: var(--shadow); }
+    .cart-head { display: flex; justify-content: space-between; align-items: center; padding: 17px; border-bottom: var(--line); }
+    .cart-head h3 { margin: 0; font-size: 22px; font-weight: 1000; letter-spacing: -.06em; text-transform: uppercase; }
+    .cart-head small { font-size: 10px; font-weight: 900; }
+    .cart-items { padding: 12px 14px 5px; max-height: 390px; overflow: auto; }
+    .cart-empty { padding: 24px 10px 27px; text-align: center; }
+    .cart-empty .empty-icon { display: block; font-size: 39px; margin-bottom: 7px; }
+    .cart-empty strong { display: block; font-size: 14px; text-transform: uppercase; }
+    .cart-empty span { display: block; margin-top: 4px; font-size: 11px; }
+    .cart-item { display: grid; grid-template-columns: 44px minmax(0, 1fr) auto; gap: 9px; padding: 11px 0; border-bottom: 1px dashed var(--ink); }
+    .cart-item-emoji { display: grid; place-items: center; width: 44px; height: 44px; border: 2px solid var(--ink); background: var(--white); font-size: 24px; }
+    .cart-item-title { margin: 0; font-size: 12px; line-height: 1.2; font-weight: 1000; }
+    .cart-item-price { margin-top: 4px; font-size: 11px; font-weight: 800; }
+    .quantity-controls { display: flex; align-items: center; gap: 7px; margin-top: 7px; }
+    .quantity-controls button { width: 23px; height: 23px; border: 2px solid var(--ink); background: var(--white); font-size: 14px; line-height: 1; font-weight: 1000; }
+    .quantity-controls span { font-size: 11px; font-weight: 1000; min-width: 10px; text-align: center; }
+    .remove-item { align-self: start; border: 0; background: transparent; padding: 0 2px; font-size: 17px; font-weight: 900; }
+    .cart-summary { border-top: var(--line); padding: 15px 17px 17px; background: var(--white); }
+    .summary-row { display: flex; justify-content: space-between; gap: 15px; font-size: 12px; font-weight: 800; }
+    .summary-row.total { margin-top: 7px; font-size: 23px; letter-spacing: -.05em; font-weight: 1000; }
+    .cart-note { margin: 10px 0 13px; font-size: 10px; line-height: 1.4; color: #55534c; }
+    .whatsapp-button { width: 100%; padding: 14px 12px; background: #25d366; color: #10100d; }
+    .whatsapp-button:disabled { background: #d5d2c8; color: #77746b; cursor: not-allowed; box-shadow: none; transform: none; }
+    .clear-cart { display: block; margin: 13px auto 0; border: 0; background: transparent; text-decoration: underline; text-underline-offset: 3px; font-size: 10px; font-weight: 900; text-transform: uppercase; }
+    .demo-alert { display: none; margin-top: 10px; border: 2px solid var(--ink); background: var(--pink); padding: 9px; font-size: 11px; font-weight: 800; }
+    .demo-alert.show { display: block; }
+
+    .brand-strip { margin-top: 48px; border-top: var(--line); border-bottom: var(--line); background: var(--lilac); padding: 17px 0; overflow: hidden; }
+    .brand-strip-inner { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 11px 25px; font-size: 12px; font-weight: 1000; text-transform: uppercase; }
+    .brand-strip span:nth-child(even) { color: #6a45e8; }
+    footer { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; padding: 27px 0 0; }
+    footer strong { font-size: 16px; font-weight: 1000; letter-spacing: -.04em; text-transform: uppercase; }
+    footer p { margin: 5px 0 0; max-width: 420px; font-size: 11px; }
+    .footer-links { display: grid; grid-template-columns: repeat(2, minmax(110px, 1fr)); gap: 8px 20px; font-size: 11px; font-weight: 900; }
+    .footer-links a { text-underline-offset: 3px; }
+    .footer-right { text-align: right; font-size: 11px; font-weight: 800; }
+    .heart { color: #e43f85; }
+    .toast { position: fixed; z-index: 50; left: 50%; bottom: 22px; transform: translate(-50%, 20px); opacity: 0; pointer-events: none; padding: 12px 17px; border: var(--line); background: var(--yellow); box-shadow: var(--shadow-small); font-size: 12px; font-weight: 1000; transition: opacity .2s ease, transform .2s ease; max-width: calc(100% - 28px); text-align: center; }
+    .toast.visible { opacity: 1; transform: translate(-50%, 0); }
+
+    @media (max-width: 1100px) {
+      .catalog-layout { grid-template-columns: minmax(0, 1fr) 300px; gap: 21px; }
+      .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero-sticker { width: 95px; height: 95px; font-size: 10px; }
+    }
+    @media (max-width: 780px) {
+      .site-shell { padding: 0 17px 35px; }
+      .announcement { margin: 0 -17px; padding: 9px 12px; font-size: 9px; }
+      .topbar { padding: 17px 0 14px; }
+      .brand-mark { width: 45px; height: 45px; flex-basis: 45px; font-size: 26px; }
+      .main-nav { display: none; }
+      .mobile-nav { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 7px; padding: 11px 0; border-bottom: var(--line); text-align: center; }
+      .mobile-nav a { font-size: 9px; }
+      .cart-top { padding: 10px 12px; font-size: 10px; }
+      .hero { grid-template-columns: 1fr; padding: 22px 0 32px; }
+      .hero-main { min-height: 320px; padding: 29px 25px; }
+      h1 { font-size: clamp(51px, 12.2vw, 86px); max-width: 520px; }
+      .hero-sticker { top: 20px; right: 18px; width: 78px; height: 78px; padding: 7px; font-size: 8px; }
+      .hero-copy { max-width: 72%; font-size: 13px; }
+      .hero-side { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .hero-art { min-height: 140px; }
+      .flower-emoji { font-size: 85px; }
+      .side-note { display: flex; flex-direction: column; justify-content: center; padding: 13px; }
+      .side-note strong { font-size: 12px; }
+      .side-note span { font-size: 10px; }
+      .catalog-layout { grid-template-columns: 1fr; }
+      .cart-panel { position: static; grid-row: 1; }
+      .catalog-section { grid-row: 2; }
+      .cart-items { max-height: none; }
+      .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+      .product-visual { min-height: 140px; }
+      .product-visual .product-emoji { font-size: 65px; }
+      .product-info { padding: 11px; }
+      .product-title { font-size: 14px; }
+      .product-bottom { align-items: flex-start; flex-direction: column; }
+      .add-button { width: 100%; }
+      .section-heading { align-items: flex-start; flex-direction: column; gap: 5px; }
+      .catalog-toolbar { flex-direction: column; }
+      .filter-select { max-width: none; width: 100%; }
+      footer { flex-direction: column; }
+      .footer-links { width: 100%; }
+      .footer-right { text-align: left; }
+    }
+    @media (max-width: 390px) {
+      .product-grid { grid-template-columns: 1fr; }
+      .product-visual { min-height: 185px; }
+      .product-bottom { align-items: center; flex-direction: row; }
+      .add-button { width: auto; }
+      .hero-sticker { position: relative; right: auto; top: auto; margin-bottom: 5px; width: 67px; height: 67px; }
+      .hero-main { align-items: flex-start; }
+      .hero-copy { max-width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }
+  </style>
+</head>
+<body>
+  <div class="announcement">✿ Handmade with love <span>✦</span> Shipping all over India <span>✦</span> Made to make you smile ✿</div>
+  <div class="site-shell">
+    <header class="topbar">
+      <a href="#home" class="brand" aria-label="Amanat by Anchal home">
+        <div class="brand-mark" aria-hidden="true">A.</div>
+        <div>
+          <div class="brand-name">AMANAT BY ANCHAL</div>
+          <div class="brand-sub">Little things. Big feelings.</div>
+        </div>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html#shop">Shop</a>
+        <a href="about.html">Our story</a>
+        <a href="faq.html">FAQs</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="top-actions">
+        <button class="cart-top" type="button" id="jumpToCart">YOUR CART <span class="count-bubble" id="topCartCount">0</span></button>
+      </div>
+    </header>
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      <a href="index.html#shop">Shop ↘</a>
+      <a href="about.html">Our story</a>
+      <a href="faq.html">FAQs</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <main id="home">
+      <section class="hero" aria-labelledby="heroTitle">
+        <div class="hero-main">
+          <span class="eyebrow">Small-batch • Handmade • Full of heart</span>
+          <h1 id="heroTitle">Keep it<br><span class="outline">forever</span><br>bloomin'.</h1>
+          <p class="hero-copy">Tiny keepsakes, handmade bouquets and cute little details to turn ordinary days into core memories.</p>
+          <a href="#shop" class="button" style="background:var(--ink); text-decoration:none;">Find your favourite ↘</a>
+          <div class="hero-sticker">Handmade<br>just for<br>you! ✿</div>
+        </div>
+        <div class="hero-side">
+          <div class="hero-art" aria-label="Decorative flower illustration"><div class="flower-emoji" aria-hidden="true">💐</div></div>
+          <div class="side-note"><strong>Made with a little extra love.</strong><span>From Sultanpur, UP · Shipping across India 📦</span></div>
+        </div>
+      </section>
+
+      <section id="shop" aria-labelledby="shopTitle">
+        <div class="section-heading">
+          <div><h2 id="shopTitle">The happy stuff<span class="heart">.</span></h2><p>Find a little something that feels like them — or you.</p></div>
+          <div style="font-size:11px;font-weight:1000;text-transform:uppercase;">Made by hand, picked by heart ✿</div>
+        </div>
+
+        <div class="catalog-layout">
+          <section class="catalog-section" aria-label="Product catalogue">
+            <div class="catalog-toolbar">
+              <label class="search-wrap">
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input id="searchInput" class="search-input" type="search" placeholder="Search bouquets, clips, keychains..." aria-label="Search products" />
+              </label>
+              <select id="sortSelect" class="filter-select" aria-label="Sort products">
+                <option value="featured">Sort: Featured</option>
+                <option value="low">Price: Low to high</option>
+                <option value="high">Price: High to low</option>
+                <option value="az">Name: A to Z</option>
+              </select>
+            </div>
+            <nav class="category-list" id="categoryList" aria-label="Product categories"></nav>
+            <div class="product-grid" id="productGrid" aria-live="polite"></div>
+          </section>
+
+          <aside class="cart-panel" id="cartPanel" aria-labelledby="cartTitle">
+            <div class="cart-head"><h3 id="cartTitle">Your little pile</h3><small><span id="cartUniqueCount">0</span> PICKS</small></div>
+            <div class="cart-items" id="cartItems">
+              <div class="cart-empty"><span class="empty-icon">🛍️</span><strong>Your cart is waiting.</strong><span>Add something handmade to get started.</span></div>
+            </div>
+            <div class="cart-summary">
+              <div class="summary-row"><span>Items subtotal</span><span id="subtotal">₹0</span></div>
+              <div class="summary-row total"><span>Total</span><span id="total">₹0</span></div>
+              <p class="cart-note">Shipping, customisation and final availability can be confirmed in WhatsApp before your order is finalised.</p>
+              <button class="button whatsapp-button" id="buyNowButton" type="button" disabled>☏ &nbsp; Buy now on WhatsApp</button>
+              <div class="demo-alert" id="whatsappSetupAlert" role="status">Add the business WhatsApp number in the code first: find <code>WHATSAPP_NUMBER</code> near the bottom of this file.</div>
+              <button class="clear-cart" id="clearCartButton" type="button">Clear cart</button>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <div class="brand-strip" aria-hidden="true"><div class="brand-strip-inner"><span>✿ Made by hand</span><span>♥ Gifted with love</span><span>✦ Made to keep</span><span>✿ Made by hand</span><span>♥ Gifted with love</span></div></div>
+    <footer>
+      <div><strong>AMANAT BY ANCHAL ✿</strong><p>Handmade bouquets, hairclips, keychains and custom creations. Keeping memories blooming forever.</p></div>
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="about.html">About us</a>
+        <a href="contact.html">Contact us</a>
+        <a href="faq.html">FAQs</a>
+        <a href="shipping.html">Shipping & returns</a>
+        <a href="privacy.html">Privacy policy</a>
+        <a href="terms.html">Terms & conditions</a>
+      </nav>
+      <div class="footer-right">SULTANPUR, UTTAR PRADESH<br>SHIPPING ALL OVER INDIA<br><span style="display:inline-block;margin-top:7px;">Made with <span class="heart">♥</span> and a little chaos.</span></div>
+    </footer>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    // EDIT THIS: replace with the business WhatsApp number including country code,
+    // digits only. Example format for India: 919876543210 (no +, spaces or hyphens).
+    const WHATSAPP_NUMBER = "9555171628";
+
+    // Demo catalogue: replace names, descriptions, prices and visuals with the real products.
+    // Set price to the actual item price in INR. Product images are represented by colourful emoji artwork.
+    const products = [
+      { id: "mini-bloom", name: "Mini Bloom Bouquet", category: "Bouquets", price: 349, emoji: "💐", color: "#ffb7d8", tag: "Customer fave", description: "A cheerful mini bouquet, wrapped and tied with love." },
+      { id: "forever-tulips", name: "Forever Tulips", category: "Bouquets", price: 499, emoji: "🌷", color: "#c9f27b", tag: "Everlasting", description: "A bright bunch made to keep your memories blooming." },
+      { id: "crochet-bunch", name: "Crochet Flower Bunch", category: "Bouquets", price: 699, emoji: "🌼", color: "#c9b8ff", tag: "Handmade", description: "A handmade flower bunch for a gift that lasts." },
+      { id: "pearl-bow", name: "Pearl Bow Hairclip", category: "Hairclips", price: 99, emoji: "🎀", color: "#ffb7d8", tag: "Cute detail", description: "A sweet pearl-look bow to finish your everyday fit." },
+      { id: "floral-claw", name: "Floral Claw Clip", category: "Hairclips", price: 149, emoji: "🌸", color: "#f4ff4f", tag: "New-ish", description: "A playful floral clip that makes a statement." },
+      { id: "daisy-pair", name: "Daisy Snap Clips (Pair)", category: "Hairclips", price: 129, emoji: "🌼", color: "#c9b8ff", tag: "2-piece set", description: "Two tiny daisy clips for an extra-happy hair day." },
+      { id: "initial-keychain", name: "Initial Charm Keychain", category: "Keychains", price: 179, emoji: "🔑", color: "#c9f27b", tag: "Personalise it", description: "A little initial keepsake. Add your letter in the order message." },
+      { id: "photo-keychain", name: "Photo Charm Keychain", category: "Keychains", price: 249, emoji: "🫧", color: "#ffb7d8", tag: "Made for you", description: "A keepsake-style charm for a favourite memory." },
+      { id: "gift-box", name: "Custom Gift Box", category: "Custom Creations", price: 799, emoji: "🎁", color: "#f4ff4f", tag: "Made to order", description: "A personalised little surprise. Final details confirmed on WhatsApp." },
+      { id: "memory-bundle", name: "Memory-Maker Bundle", category: "Custom Creations", price: 999, emoji: "💝", color: "#c9b8ff", tag: "Gift idea", description: "A curated gift bundle for birthdays, thank-yous and just-because days." },
+      { id: "flower-bookmark", name: "Flower Bookmark", category: "Custom Creations", price: 159, emoji: "🌻", color: "#c9f27b", tag: "Bookish cutie", description: "A floral little companion for your current read." },
+      { id: "surprise-mini", name: "Surprise Mini Gift", category: "Custom Creations", price: 299, emoji: "💌", color: "#ffb7d8", tag: "Tiny surprise", description: "A small, thoughtful gift. Message your preferences when ordering." }
+    ];
+
+    const categoryNames = ["All", "Bouquets", "Hairclips", "Keychains", "Custom Creations"];
+    const cart = new Map();
+    let selectedCategory = "All";
+    let toastTimeout;
+
+    const productGrid = document.getElementById("productGrid");
+    const categoryList = document.getElementById("categoryList");
+    const searchInput = document.getElementById("searchInput");
+    const sortSelect = document.getElementById("sortSelect");
+    const cartItems = document.getElementById("cartItems");
+    const subtotalEl = document.getElementById("subtotal");
+    const totalEl = document.getElementById("total");
+    const buyNowButton = document.getElementById("buyNowButton");
+    const topCartCount = document.getElementById("topCartCount");
+    const cartUniqueCount = document.getElementById("cartUniqueCount");
+    const toast = document.getElementById("toast");
+    const whatsappSetupAlert = document.getElementById("whatsappSetupAlert");
+
+    const money = (value) => new Intl.NumberFormat("en-IN", {
+      style: "currency", currency: "INR", maximumFractionDigits: 0
+    }).format(value);
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("visible");
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => toast.classList.remove("visible"), 2100);
+    }
+
+    function renderCategories() {
+      categoryList.innerHTML = "";
+      categoryNames.forEach((category) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "category-chip";
+        button.textContent = category === "All" ? "✳ All products" : category;
+        button.setAttribute("aria-pressed", String(selectedCategory === category));
+        button.addEventListener("click", () => {
+          selectedCategory = category;
+          renderCategories();
+          renderProducts();
+        });
+        categoryList.appendChild(button);
+      });
+    }
+
+    function getFilteredProducts() {
+      const term = searchInput.value.trim().toLowerCase();
+      let result = products.filter((product) => {
+        const matchesCategory = selectedCategory === "All" || product.category === selectedCategory;
+        const searchable = `${product.name} ${product.category} ${product.description} ${product.tag}`.toLowerCase();
+        return matchesCategory && searchable.includes(term);
+      });
+      const sort = sortSelect.value;
+      if (sort === "low") result.sort((a, b) => a.price - b.price);
+      if (sort === "high") result.sort((a, b) => b.price - a.price);
+      if (sort === "az") result.sort((a, b) => a.name.localeCompare(b.name));
+      return result;
+    }
+
+    function renderProducts() {
+      const list = getFilteredProducts();
+      productGrid.innerHTML = "";
+      if (!list.length) {
+        productGrid.innerHTML = '<div class="empty-products"><strong>No little treasures found.</strong><span>Try another search or category.</span></div>';
+        return;
+      }
+      list.forEach((product, index) => {
+        const card = document.createElement("article");
+        card.className = "product-card";
+        card.innerHTML = `
+          <div class="product-visual" style="background:${product.color}">
+            <span class="product-number">NO. ${String(index + 1).padStart(2, "0")}</span>
+            <span class="product-emoji" aria-hidden="true">${product.emoji}</span>
+            <span class="product-badge">${escapeHTML(product.tag)}</span>
+          </div>
+          <div class="product-info">
+            <div class="product-category">${escapeHTML(product.category)}</div>
+            <h3 class="product-title">${escapeHTML(product.name)}</h3>
+            <p class="product-description">${escapeHTML(product.description)}</p>
+            <div class="product-bottom">
+              <span class="price">${money(product.price)}</span>
+              <button class="add-button" type="button" data-add="${product.id}" aria-label="Add ${escapeHTML(product.name)} to cart">＋ Add to cart</button>
+            </div>
+          </div>`;
+        card.querySelector("[data-add]").addEventListener("click", () => addToCart(product.id));
+        productGrid.appendChild(card);
+      });
+    }
+
+    function escapeHTML(value) {
+      return String(value).replace(/[&<>"']/g, (character) => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
+      })[character]);
+    }
+
+    function addToCart(id) {
+      cart.set(id, (cart.get(id) || 0) + 1);
+      const product = products.find((item) => item.id === id);
+      renderCart();
+      showToast(`${product.name} added to your cart ✿`);
+    }
+
+    function changeQuantity(id, change) {
+      const next = (cart.get(id) || 0) + change;
+      if (next <= 0) cart.delete(id); else cart.set(id, next);
+      renderCart();
+    }
+
+    function renderCart() {
+      const entries = Array.from(cart.entries()).map(([id, quantity]) => ({
+        product: products.find((product) => product.id === id), quantity
+      })).filter((entry) => entry.product);
+      const count = entries.reduce((sum, entry) => sum + entry.quantity, 0);
+      const uniqueCount = entries.length;
+      const subtotal = entries.reduce((sum, entry) => sum + entry.product.price * entry.quantity, 0);
+      topCartCount.textContent = count;
+      cartUniqueCount.textContent = uniqueCount;
+      subtotalEl.textContent = money(subtotal);
+      totalEl.textContent = money(subtotal);
+      buyNowButton.disabled = count === 0;
+      whatsappSetupAlert.classList.remove("show");
+
+      if (!entries.length) {
+        cartItems.innerHTML = '<div class="cart-empty"><span class="empty-icon">🛍️</span><strong>Your cart is waiting.</strong><span>Add something handmade to get started.</span></div>';
+        return;
+      }
+      cartItems.innerHTML = "";
+      entries.forEach(({ product, quantity }) => {
+        const item = document.createElement("div");
+        item.className = "cart-item";
+        item.innerHTML = `
+          <div class="cart-item-emoji" style="background:${product.color}" aria-hidden="true">${product.emoji}</div>
+          <div>
+            <p class="cart-item-title">${escapeHTML(product.name)}</p>
+            <div class="cart-item-price">${money(product.price)} each</div>
+            <div class="quantity-controls" aria-label="Quantity controls for ${escapeHTML(product.name)}">
+              <button type="button" data-minus aria-label="Decrease quantity">−</button>
+              <span>${quantity}</span>
+              <button type="button" data-plus aria-label="Increase quantity">＋</button>
+            </div>
+          </div>
+          <button type="button" class="remove-item" data-remove aria-label="Remove ${escapeHTML(product.name)}">×</button>`;
+        item.querySelector("[data-minus]").addEventListener("click", () => changeQuantity(product.id, -1));
+        item.querySelector("[data-plus]").addEventListener("click", () => changeQuantity(product.id, 1));
+        item.querySelector("[data-remove]").addEventListener("click", () => {
+          cart.delete(product.id);
+          renderCart();
+          showToast("Item removed from your cart.");
+        });
+        cartItems.appendChild(item);
+      });
+    }
+
+    function checkoutOnWhatsApp() {
+      if (cart.size === 0) return;
+      const cleanedNumber = WHATSAPP_NUMBER.replace(/\D/g, "");
+      if (!/^\d{10,15}$/.test(cleanedNumber) || /X/i.test(WHATSAPP_NUMBER)) {
+        whatsappSetupAlert.classList.add("show");
+        showToast("Set the business WhatsApp number in the code first.");
+        return;
+      }
+      const entries = Array.from(cart.entries()).map(([id, quantity]) => ({
+        product: products.find((product) => product.id === id), quantity
+      })).filter((entry) => entry.product);
+      const total = entries.reduce((sum, entry) => sum + entry.product.price * entry.quantity, 0);
+      const lines = [
+        "Hi Amanat by Anchal! 🌸 I'd like to place an order:",
+        "",
+        ...entries.map(({ product, quantity }) =>
+          `• ${product.name}\n  Qty: ${quantity} × ${money(product.price)} = ${money(quantity * product.price)}\n  Details: ${product.description}`
+        ),
+        "",
+        `ITEMS TOTAL: ${money(total)}`,
+        "Shipping/customisation: please confirm with me.",
+        "",
+        "Please confirm availability and the final amount. Thank you! 💗"
+      ];
+      const url = `https://wa.me/${cleanedNumber}?text=${encodeURIComponent(lines.join("\n"))}`;
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+
+    searchInput.addEventListener("input", renderProducts);
+    sortSelect.addEventListener("change", renderProducts);
+    buyNowButton.addEventListener("click", checkoutOnWhatsApp);
+    document.getElementById("clearCartButton").addEventListener("click", () => {
+      if (cart.size === 0) return;
+      cart.clear();
+      renderCart();
+      showToast("Cart cleared.");
+    });
+    document.getElementById("jumpToCart").addEventListener("click", () => {
+      document.getElementById("cartPanel").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    renderCategories();
+    renderProducts();
+    renderCart();
+  </script>
+</body>
+</html>
